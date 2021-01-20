@@ -1,0 +1,43 @@
+
+void drawSquare(double a)
+{
+	// rad = sqrt((a + a) * (a + a) + (a + a) * (a + a) + (2 - 2) * (2 - 2)) / 2;
+
+	double digonal = sqrt(2 * a * a);
+
+	// circle
+	drawCircle(digonal, 80);
+
+	// trangle
+	glColor3f(2.0, 1.0, 1.0);
+
+	glBegin(GL_QUADS);
+	{
+		glVertex3f(0, a, 2);
+		glVertex3f(-a, 3, 2);
+
+		glVertex3f(-a, 3, 2);
+		glVertex3f(a, 3, 2);
+
+		glVertex3f(a, 3, 2);
+		glVertex3f(0, a, 2);
+	}
+	glEnd();
+
+	// square
+	glColor3f(0.0, 1.0, 2.0);
+	glBegin(GL_QUADS);
+	{
+		glVertex3f(a, a, 2);
+		glVertex3f(a, -a, 2);
+		glVertex3f(-a, -a, 2);
+		glVertex3f(-a, a, 2);
+	}
+	glEnd();
+}
+
+
+/// in display function
+
+
+drawSquare(40); 
